@@ -3,7 +3,6 @@ const websiteModel = require("../models/websiteModel");
 
 module.exports = {
   getSearchResult: (req, res, next) => {
-    let from = req.query.from;
     let keyword = req.query.keyword;
 
     async function searchAll() {
@@ -21,7 +20,7 @@ module.exports = {
                       let a = {
                         websiteName: obj.websiteName,
                         href: i.getElementsByClassName(obj.linkTag)[0].href,
-                        image: i.getElementsByClassName(obj.imageTag)[0].src,
+                        image: i.getElementsByTagName(obj.imageTag)[0].src,
                         title: i.getElementsByClassName(obj.titleTag)[0].innerText,
                       };
                       if (i.getElementsByClassName(obj.priceTag).length != 0) {
@@ -42,10 +41,14 @@ module.exports = {
         totalProductlist = totalProductlist.concat(newList)
       }
       console.log(totalProductlist)
-      res.send(await JSON.stringify(totalProductlist));
+      res.json({totalProductlist: await totalProductlist})
       await browser.close();
     }
     searchAll();
+  },
+
+  index: (req,res,next) => {
+       res.send("welcome to deal engine")
   },
 };
 
