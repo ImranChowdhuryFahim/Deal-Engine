@@ -33,6 +33,7 @@ module.exports = {
                     return productList;
                   }, obj)
           resolve(productslist)
+          reject([])
           await page.close()
         });
 
