@@ -1,8 +1,8 @@
 module.exports = {
   websiteModel: [
     {
-      websiteName: "amazon",
-      websiteLink: `https://www.amazon.com/s?k=`,
+      websiteName: "amazon-au",
+      websiteLink: `https://www.amazon.com.au/s?k=`,
       productDetails: 'div[class="a-section a-spacing-medium"]',
       linkTag: "a-link-normal s-no-outline",
       imageTag: "img",

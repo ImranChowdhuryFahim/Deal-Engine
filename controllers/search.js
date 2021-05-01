@@ -16,15 +16,37 @@ module.exports = {
           let productslist= await page.evaluate((obj) => {
                     let list = document.querySelectorAll(obj.productDetails);
                     let productList = [];
+                    let lnk, img, ttl;
                     for (i of list) {
+                      try {
+                        lnk = i.getElementsByClassName(obj.linkTag)[0].href;
+                      } catch (error) {
+                        lnk = "No link!";
+                      }
+                      try {
+                        img = i.getElementsByTagName(obj.imageTag)[0].src;
+                      } catch (error) {
+                        img = "No Image";
+                      }
+                      try {
+                        ttl = i.getElementsByClassName(obj.titleTag)[0]
+                          .innerText;
+                      } catch (error) {
+                        ttl = "No title";
+                      }
                       let a = {
                         websiteName: obj.websiteName,
-                        href: i.getElementsByClassName(obj.linkTag)[0].href,
-                        image: i.getElementsByTagName(obj.imageTag)[0].src,
-                        title: i.getElementsByClassName(obj.titleTag)[0].innerText,
+                        href: lnk,
+                        image: img,
+                        title: ttl,
                       };
                       if (i.getElementsByClassName(obj.priceTag).length != 0) {
-                        a["price"] = i.getElementsByClassName(obj.priceTag)[0].innerText;
+                        a["price"] = parseFloat(
+                          i
+                            .getElementsByClassName(obj.priceTag)[0]
+                            .innerText.replace("$", "")
+                        );
+                        
                       } else {
                         a["price"] = null;
                       }
