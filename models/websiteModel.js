@@ -7,7 +7,7 @@ module.exports = {
       linkTag: "a-link-normal s-no-outline",
       imageTag: "img",
       priceTag: "a-offscreen",
-      titleTag: "a-size-medium a-color-base a-text-normal",
+      titleTag: "a-link-normal a-text-normal",
     },
     {
       websiteName: "bigw",
