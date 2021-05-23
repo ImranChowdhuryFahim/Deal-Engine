@@ -1,5 +1,5 @@
 const puppeteer = require("puppeteer");
-const websiteModel = require("../models/websiteModel");
+const websiteModel = require("../websiteModel/websiteModel");
 
 module.exports = {
   getSearchResult: (req, res, next) => {
@@ -71,7 +71,7 @@ module.exports = {
   },
 
   index: (req,res,next) => {
-       res.send("welcome to deal engine")
+       res.json({message:"welcome to deal engine"})
   },
 };
 
