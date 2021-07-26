@@ -8,6 +8,7 @@ module.exports = {
       imageTag: "img",
       priceTag: "a-offscreen",
       titleTag: "a-link-normal a-text-normal",
+      suffix: '',
     },
     {
       websiteName: "bigw",
@@ -17,6 +18,7 @@ module.exports = {
       imageTag: "img",
       priceTag: "dollars",
       titleTag: "product-name",
+      suffix: '',
     },
     {
       websiteName: "jbhifi",
@@ -26,6 +28,7 @@ module.exports = {
       imageTag: "img",
       priceTag: "ais-hit--price price",
       titleTag: "ais-hit--title product-tile__title",
+      suffix: '',
     },
   ],
 };
