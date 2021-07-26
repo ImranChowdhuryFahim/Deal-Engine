@@ -43,7 +43,7 @@ module.exports = {
                 a["price"] = parseFloat(
                   i
                     .getElementsByClassName(obj.priceTag)[0]
-                    .innerText.replace("$", "")
+                    .innerText.replace("$", "").replace("US","")
                 );
               } else {
                 a["price"] = null;

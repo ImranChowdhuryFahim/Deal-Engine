@@ -1,16 +1,16 @@
 module.exports = {
   websiteModel: [
-    {
-      websiteName: "bestdeals.today",
-      websiteLink: `https://au.bestdeals.today/`,
-      productDetails: 'div[class="deal__main-wrap"]',
-      linkTag:
-        "ver_container clickout product_box_link deal__container deal__container--ab-two-col rf_js_redirect-link",
-      imageTag: "img",
-      priceTag: "deal__price",
-      titleTag: "deal__title-ch deal__title-ch--ab-two-col",
-      suffix: "",
-    },
+    // {
+    //   websiteName: "bestdeals.today",
+    //   websiteLink: `https://au.bestdeals.today/`,
+    //   productDetails: 'div[class="deal__main-wrap"]',
+    //   linkTag:
+    //     "ver_container clickout product_box_link deal__container deal__container--ab-two-col rf_js_redirect-link",
+    //   imageTag: "img",
+    //   priceTag: "deal__price",
+    //   titleTag: "deal__title-ch deal__title-ch--ab-two-col",
+    //   suffix: "",
+    // },
     {
       websiteName: "amazon-au",
       websiteLink: `https://www.amazon.com.au/s?k=`,
