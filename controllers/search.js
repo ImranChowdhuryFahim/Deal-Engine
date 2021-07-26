@@ -12,7 +12,7 @@ module.exports = {
       let pagePromise = (obj, keyword) =>
         new Promise(async (resolve, reject) => {
           const page = await browser.newPage();
-          await page.goto(obj.websiteLink + keyword + obj.suffix);
+          await page.goto(obj.websiteLink + keyword );
           let productslist = await page.evaluate((obj) => {
             let list = document.querySelectorAll(obj.productDetails);
             let productList = [];
@@ -50,19 +50,18 @@ module.exports = {
               }
               productList.push(a);
             }
-            console.log(productList)
             return productList;
           }, obj);
           resolve(productslist);
-          // reject([]);
+          reject([]);
           await page.close();
         });
 
-        let promises = []
       for (obj of websiteModel.websiteModel) {
-        promises.push(pagePromise(obj, keyword));
+        let newList = await pagePromise(obj, keyword);
+        totalProductlist = totalProductlist.concat(newList);
       }
-      res.json({ totalProductlist:  (await Promise.all(promises)).reduce((accum, el) => accum.concat(el), []) });
+      res.json({ totalProductlist: await totalProductlist });
       await browser.close();
     }
     searchAll();
