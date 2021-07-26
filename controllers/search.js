@@ -12,7 +12,7 @@ module.exports = {
       let pagePromise = (obj, keyword) =>
         new Promise(async (resolve, reject) => {
           const page = await browser.newPage();
-          await page.goto(obj.websiteLink + keyword+obj.suffix);
+          await page.goto(obj.websiteLink + keyword + obj.suffix);
           let productslist = await page.evaluate((obj) => {
             let list = document.querySelectorAll(obj.productDetails);
             let productList = [];
