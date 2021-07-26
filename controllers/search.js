@@ -50,18 +50,19 @@ module.exports = {
               }
               productList.push(a);
             }
+            console.log(productList)
             return productList;
           }, obj);
           resolve(productslist);
-          reject([]);
+          // reject([]);
           await page.close();
         });
 
+        let promises = []
       for (obj of websiteModel.websiteModel) {
-        let newList = await pagePromise(obj, keyword);
-        totalProductlist = totalProductlist.concat(newList);
+        promises.push(pagePromise(obj, keyword));
       }
-      res.json({ totalProductlist: await totalProductlist });
+      res.json({ totalProductlist:  (await Promise.all(promises)).reduce((accum, el) => accum.concat(el), []) });
       await browser.close();
     }
     searchAll();
