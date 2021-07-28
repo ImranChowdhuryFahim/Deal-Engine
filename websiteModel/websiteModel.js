@@ -1,5 +1,6 @@
 module.exports = {
-    websiteModel: [{
+    websiteModel: {
+        "bestdeals.today": {
             websiteName: "bestdeals.today",
             websiteLink: `https://au.bestdeals.today/`,
             productDetails: 'div[class="deal__main-wrap"]',
@@ -9,7 +10,7 @@ module.exports = {
             titleTag: "deal__title-ch deal__title-ch--ab-two-col",
             suffix: "",
         },
-        {
+        "amazon-au": {
             websiteName: "amazon-au",
             websiteLink: `https://www.amazon.com.au/s?k=`,
             productDetails: 'div[class="a-section a-spacing-medium"]',
@@ -19,7 +20,7 @@ module.exports = {
             titleTag: "a-link-normal a-text-normal",
             suffix: "",
         },
-        {
+        bigw: {
             websiteName: "bigw",
             websiteLink: "https://www.bigw.com.au/search?text=",
             productDetails: 'div[class="ProductTile"]',
@@ -29,9 +30,9 @@ module.exports = {
             titleTag: "product-name",
             suffix: "",
         },
-        {
+        jbhifi: {
             websiteName: "jbhifi",
-            websiteLink: "https://www.jbhifi.com.au/?query=",
+            websiteLink: "https://www.jbhifi.com.au/search?query=",
             productDetails: 'div[class="ais-hits--item ais-hits--item"]',
             linkTag: "ais-details-a product-tile",
             imageTag: "img",
@@ -39,27 +40,30 @@ module.exports = {
             titleTag: "ais-hit--title product-tile__title",
             suffix: "",
         },
-        {
-            websiteName: "kogan",
-            websiteLink: "https://www.kogan.com/au/shop/category/",
-            productDetails: 'div[class="_1umis"]',
-            linkTag: "_3w8sH",
-            imageTag: "img",
-            priceTag: "_2AQgf",
-            titleTag: "_1A_Xq",
-            suffix: "",
-        },
-        {
-            websiteName: "woolworths",
-            websiteLink: "https://www.woolworths.com.au/shop/search/products?searchTerm=",
-            productDetails: 'div[class="ng-tns-c327-9 product-grid--tile ng-star-inserted"]',
-            linkTag: "shelfProductTile-imageWrapper",
-            imageTag: "img",
-            priceTag: "price-dollars",
-            titleTag: "shelfProductTile-descriptionLink",
-            suffix: "",
-        },
-        {
+        // not working
+        //"kogan": {
+        //   websiteName: "kogan",
+        //   websiteLink: "https://www.kogan.com/au/shop/category/",
+        //   productDetails: 'div[class="_1umis"]',
+        //   linkTag: "_3w8sH",
+        //   imageTag: "img",
+        //   priceTag: "_2AQgf",
+        //   titleTag: "_1A_Xq",
+        //   suffix: "/",
+        // },
+        // "woolworths":{
+        //   websiteName: "woolworths",
+        //   websiteLink:
+        //     "https://www.woolworths.com.au/shop/search/products?searchTerm=",
+        //   productDetails:
+        //     'shared-product-tile[class="ng-star-inserted"]',
+        //   linkTag: "shelfProductTile-imageWrapper",
+        //   imageTag: "img",
+        //   priceTag: "price-dollars",
+        //   titleTag: "shelfProductTile-descriptionLink",
+        //   suffix: "",
+        // },
+        banggood: {
             websiteName: "banggood",
             websiteLink: "https://www.banggood.com/search/",
             productDetails: 'div[class="p-wrap"]',
@@ -69,5 +73,5 @@ module.exports = {
             titleTag: "title exclick jsObserver",
             suffix: ".html?from=nav",
         },
-    ],
+    },
 };
