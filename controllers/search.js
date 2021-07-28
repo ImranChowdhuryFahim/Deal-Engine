@@ -3,8 +3,8 @@ const websiteModel = require("../websiteModel/websiteModel");
 
 module.exports = {
   getSearchResult: (req, res, next) => {
-    let keyword = req.query.keyword;
-
+    let { keyword, websiteName } = req.query;
+   
     async function searchAll() {
       const browser = await puppeteer.launch();
       let totalProductlist = [];
@@ -43,7 +43,8 @@ module.exports = {
                 a["price"] = parseFloat(
                   i
                     .getElementsByClassName(obj.priceTag)[0]
-                    .innerText.replace("$", "").replace("US","")
+                    .innerText.replace("$", "")
+                    .replace("US", "")
                 );
               } else {
                 a["price"] = null;
@@ -57,11 +58,12 @@ module.exports = {
           await page.close();
         });
 
-      for (obj of websiteModel.websiteModel) {
-        let newList = await pagePromise(obj, keyword);
-        totalProductlist = totalProductlist.concat(newList);
-      }
-      res.json({ totalProductlist: await totalProductlist });
+      totalProductlist = await pagePromise(
+        websiteModel.websiteModel[websiteName],
+        keyword
+      );
+
+      res.json({ totalProductlist: totalProductlist });
       await browser.close();
     }
     searchAll();
