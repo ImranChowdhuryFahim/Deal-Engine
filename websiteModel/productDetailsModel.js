@@ -22,12 +22,12 @@ module.exports = {
   },
   bigw: {
     websiteName: "bigw",
-    productLink: `link ager model thake ekhane ashbe`,
-    productDescriptionClass: "TabContent active-true product-details",
-    imageTag: "img",
-    productShortDtailsClass: "TabContent active-true product-specifications",
-    priceTag: "Price variant-huge",
-    titleTag: "product-header",
+    productName: 'h1[class="product-header"]',
+    productDescription: 'div[class="TabContent active-true product-details"]',
+    images: 'div[class="ProductImage"]>img',
+    productShortDescription: '',
+    sellPrice: 'span[class="Price variant-huge"]',
+    regularPrice: "",
     suffix: "",
   },
 };

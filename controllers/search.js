@@ -14,6 +14,10 @@ module.exports = {
   },
   getProductDetails: async (req, res, next) => {
     const { productLink, websiteName, websiteLink } = req.query;
+    console.log(productDetailsModel[websiteName],
+      productLink,
+      websiteLink,
+      websiteName)
     const productDetails = await scraper.detailsScraper(
       productDetailsModel[websiteName],
       productLink,
