@@ -1,0 +1,1 @@
+http://127.0.0.1:8000/product-details?productLink=https://www.banggood.com/BlitzWolf-BW-FWC7-15W-10W-7_5W-5W-Wireless-Charger-Fast-Wireless-Charging-Pad-For-Qi-enabled-Smart-Phones-for-iPhone-11-SE-2020-For-Samsung-Galaxy-Note-20-Ultra-Huawei-P40-Pro-Mi10-p-1576515.html?cur_warehouse=CN&ID=224&rmmds=search&websiteName=banggood&websiteLink=https://www.banggood.com/
