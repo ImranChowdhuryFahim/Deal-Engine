@@ -15,8 +15,8 @@ module.exports = {
         productDescription: 'div[class="descriptions"]',
         images: 'div[role="option"]>img',
         productShortDescription: 'div[class="product-extra-descriptions"]',
-        sellPrice: 'span[class="sale"]',
-        regularPrice: "s", //<s> tag
+        sellPrice: 'div[class="product-cta"]>div[class="pricing-block"]>div[class="savings"]>span[class="sale"]',
+        regularPrice: 'div[class="product-cta"]>div[class="pricing-block"]', //<s> tag
         suffix: "",
     },
     bigw: {
