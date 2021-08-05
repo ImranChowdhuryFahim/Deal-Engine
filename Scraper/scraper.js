@@ -75,12 +75,12 @@ module.exports = {
                     productUrl = productLink;
 
                     try {
-                        regularPrice = document.querySelector(obj.regularPrice).innerText;
+                        regularPrice = document.querySelector(obj.regularPrice).innerText.replace("$",""),replace("US","").replace("AU","");
                     } catch (error) {
                         regularPrice = null;
                     }
                     try {
-                        sellPrice = document.querySelector(obj.sellPrice).innerText;
+                        sellPrice = document.querySelector(obj.sellPrice).innerText.replace("$",""),replace("US","").replace("AU","");
                     } catch (error) {
                         sellPrice = null;
                     }

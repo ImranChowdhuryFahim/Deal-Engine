@@ -17,29 +17,33 @@ module.exports = {
       return res.status(500).json({ message: "already exit" });
     }
     TrackedProducts.create(product)
-      .then(() => {
-        console.log("added");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    let task = await cron.schedule(
-      "* * * * *",
-      async (product, productDetailsModel) => {
-      //  let productDetails = await scraper.detailsScraper(
-      //     productDetailsModel[product.websiteName],
-      //     product.productLink,
-      //     product.websiteLink,
-      //     product.websiteName
-      //   );
-      //   let priceTracker = {
-      //     productLink
-      //     productPrice: productDetails.produ
-      //     productTag: product.productTag,
-      //     date: new Date(),
-      //   }
-      }
-    );
+      .then(() => {})
+      .catch((err) => {});
+    let task = await cron.schedule("*/2 * * * *", async () => {
+      let productDetails = await scraper.detailsScraper(
+        productDetailsModel[product.websiteName],
+        product.productLink,
+        product.websiteLink,
+        product.websiteName
+      );
+      console.log(productDetails)
+      // let priceTracker = {
+      //   productLink: product.productLink,
+      //   productPrice: parseFloat(
+      //     productDetails.sellPrice
+      //       ? productDetails.sellPrice
+      //       : productDetails.regularPrice
+      //   ),
+      //   productTag: product.productTag,
+      // };
+      // PriceTracker.create(priceTracker)
+      //   .then(() => {
+      //     console.log("tracking....");
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+    });
     url_taskMap[req.body.productLink] = task;
     res.status(200).json({ message: "successfully added the product" });
   },

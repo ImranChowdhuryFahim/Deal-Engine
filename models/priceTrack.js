@@ -13,11 +13,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      date: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        primaryKey: true,
-      },
     });
   
     return PriceTracker;
