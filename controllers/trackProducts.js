@@ -27,22 +27,22 @@ module.exports = {
         product.websiteName
       );
       console.log(productDetails)
-      // let priceTracker = {
-      //   productLink: product.productLink,
-      //   productPrice: parseFloat(
-      //     productDetails.sellPrice
-      //       ? productDetails.sellPrice
-      //       : productDetails.regularPrice
-      //   ),
-      //   productTag: product.productTag,
-      // };
-      // PriceTracker.create(priceTracker)
-      //   .then(() => {
-      //     console.log("tracking....");
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
+      let priceTracker = {
+        productLink: product.productLink,
+        productPrice: parseFloat(
+          productDetails.sellPrice
+            ? productDetails.sellPrice
+            : productDetails.regularPrice
+        ),
+        productTag: product.productTag,
+      };
+      PriceTracker.create(priceTracker)
+        .then(() => {
+          console.log("tracking....");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     });
     url_taskMap[req.body.productLink] = task;
     res.status(200).json({ message: "successfully added the product" });
