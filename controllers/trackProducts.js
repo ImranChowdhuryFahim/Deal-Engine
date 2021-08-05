@@ -1,5 +1,7 @@
-const { TrackedProducts } = require("../models");
-const cron = require('node-cron');
+const { TrackedProducts, PriceTracker } = require("../models");
+const cron = require("node-cron");
+const scraper = require("../Scraper/scraper");
+const productDetailsModel = require("../websiteModel/productDetailsModel");
 const url_taskMap = {};
 module.exports = {
   trackProduct: async (req, res, next) => {
@@ -7,24 +9,39 @@ module.exports = {
 
     const product = req.body;
 
-    if(!(req.body.productLink in url_taskMap)){
-      let task =await cron.schedule('* * * * *', async() => {
-        await TrackedProducts.create(product).then(()=>{
-          console.log("added")
-        }).catch((err)=>{
-          console.log(err);
-        })
-      });
-      url_taskMap[req.body.productLink]=task;
-      res.json(product);
-    }
+    alreadyExist = await TrackedProducts.findOne({
+      where: { productLink: product.productLink },
+    });
 
-    else{
-      console.log("already exit")
-      res.json({message:"already exit"});
+    if (alreadyExist) {
+      return res.status(500).json({ message: "already exit" });
     }
-    
-    
+    TrackedProducts.create(product)
+      .then(() => {
+        console.log("added");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    let task = await cron.schedule(
+      "* * * * *",
+      async (product, productDetailsModel) => {
+      //  let productDetails = await scraper.detailsScraper(
+      //     productDetailsModel[product.websiteName],
+      //     product.productLink,
+      //     product.websiteLink,
+      //     product.websiteName
+      //   );
+      //   let priceTracker = {
+      //     productLink
+      //     productPrice: productDetails.produ
+      //     productTag: product.productTag,
+      //     date: new Date(),
+      //   }
+      }
+    );
+    url_taskMap[req.body.productLink] = task;
+    res.status(200).json({ message: "successfully added the product" });
   },
 
   getAllTrackedProducts: async (req, res, next) => {
@@ -37,13 +54,18 @@ module.exports = {
     Object.keys(object).forEach((k) => {
       AllProductsListWithOnlyOneOccurance.push(object[k]);
     });
-    res.json(AllProductsList);
+    console.log(AllProductsList);
+    res.status(200).json(AllProductsList);
   },
 
+  deleteTrackedProduct: async (req, res, next) => {
+    const { productLink } = req.body;
 
-  deleteTrackedProduct: (req,res,next) => {
-    res.json({message: "cron request delete korlam"});
-    let job = url_taskMap[1];
-    job.stop();
-  }
+    let job = url_taskMap[productLink];
+    if (job) job.stop();
+
+    await TrackedProducts.destroy({ where: { productLink } });
+    await PriceTracker.destroy({ where: { productLink } });
+    res.status(200).json({ message: "successfully deleted" });
+  },
 };

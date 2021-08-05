@@ -10,25 +10,20 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
     },
     productPrice: {
-      type: DataTypes.STRING,
+      type: DataTypes.DOUBLE,
       allowNull: false,
     },
     productImage: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    productImage: {
+    productTag: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     websiteName: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    date: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      primaryKey: true,
     },
   });
 

@@ -1,13 +1,15 @@
 module.exports = {
   amazon: {
     websiteName: "amazon",
-    productLink: `link ager model thake ekhane ashbe`,
-    productDescriptionClass: "a-section a-spacing-medium a-spacing-top-small",
-    imageTag: "img",
-    productShortDtailsClass:
-      "a-row a-expander-container a-expander-extend-container",
-    priceTag: "a-size-medium a-color-price priceBlockBuyingPriceString",
-    titleTag: "a-size-large product-title-word-break",
+    productName: 'span[class="a-size-large product-title-word-break"]',
+    productDescription:
+      'div[class="a-section a-spacing-medium a-spacing-top-small"]',
+    images: 'div[class="imgTagWrapper"]>img',
+    productShortDescription:
+      'div[class="a-row a-expander-container a-expander-extend-container"]',
+    sellPrice:
+      'div[class="a-size-medium a-color-price priceBlockBuyingPriceString"]',
+    regularPrice: "null",
     suffix: "",
   },
   jbhifi: {
@@ -17,17 +19,39 @@ module.exports = {
     images: 'div[role="option"]>img',
     productShortDescription: 'div[class="product-extra-descriptions"]',
     sellPrice: "sale",
-    regularPrice: "",
+    regularPrice: "s", //<s> tag
     suffix: "",
   },
   bigw: {
     websiteName: "bigw",
     productName: 'h1[class="product-header"]',
     productDescription: 'div[class="TabContent active-true product-details"]',
-    images: 'div[class="ProductImage"]>img',
-    productShortDescription: '',
+    images: 'a[class="ProductImage"]>img',
+    productShortDescription:
+      'div[class="TabContent active-true product-specifications"]',
     sellPrice: 'span[class="Price variant-huge"]',
-    regularPrice: "",
+    regularPrice: 'span[class="Price variant - huge "]',
+    suffix: "",
+  },
+  banggood: {
+    websiteName: "banggood",
+    productName: 'span[class="product-title-text"]',
+    productDescription: 'div[class="tab-cnt"]',
+    images: 'div[class="player"]>img',
+    productShortDescription:
+      'div[class="tab-cnt-specification product_spec_wrap hide"]',
+    sellPrice: 'span[class="main-price"]',
+    regularPrice: 'span[class="old-price"]',
+    suffix: "",
+  },
+  ebay: {
+    websiteName: "ebay",
+    productName: 'h1[class="it-ttl"]',
+    productDescription: 'div[class="section"]',
+    images: 'div[class="img500 vi-img-gallery-fixed-height-500 zoom_able"]>img',
+    productShortDescription: 'h1[class="it-ttl"]',
+    sellPrice: 'span[class="notranslate"]',
+    regularPrice: 'span[class="notranslate"]',
     suffix: "",
   },
 };

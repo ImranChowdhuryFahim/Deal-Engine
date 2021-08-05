@@ -4,6 +4,7 @@ const db = require("./models");
 const search = require("./routes/search");
 const trackProduct = require("./routes/trackProducts");
 const createProduct = require("./routes/createProducts");
+require('events').EventEmitter.prototype._maxListeners = 100;
 
 const app = express();
 

@@ -7,6 +7,7 @@ module.exports = {
   getSearchResult: async (req, res, next) => {
     const { keyword, websiteName } = req.query;
     let totalProductlist = [];
+    console.log(keyword,websiteName)
 
     totalProductlist = await scraper.listScraper(websiteModel[websiteName], keyword);
 
@@ -14,10 +15,10 @@ module.exports = {
   },
   getProductDetails: async (req, res, next) => {
     const { productLink, websiteName, websiteLink } = req.query;
-    console.log(productDetailsModel[websiteName],
-      productLink,
-      websiteLink,
-      websiteName)
+    // console.log(productDetailsModel[websiteName],
+    //   productLink,
+    //   websiteLink,
+    //   websiteName)
     const productDetails = await scraper.detailsScraper(
       productDetailsModel[websiteName],
       productLink,
