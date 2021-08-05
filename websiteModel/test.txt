@@ -1,1 +1,1 @@
-http://127.0.0.1:8000/product-details?productLink=https://www.ebay.com.au/itm/313625527009?hash=item490589c2e1:g:EdoAAOSw~oRhCRxe&websiteName=ebay&websiteLink=https://www.ebay.com.au/
+http://127.0.0.1:8000/product-details?productLink=https://www.jbhifi.com.au/products/google-nest-mini-chalk-1&websiteName=jbhifi&websiteLink=https://www.jbhifi.com.au/
