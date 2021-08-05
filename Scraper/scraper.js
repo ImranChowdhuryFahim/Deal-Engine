@@ -37,6 +37,7 @@ module.exports = {
                             .getElementsByClassName(obj.priceTag)[0]
                             .innerText.replace("$", "")
                             .replace("US", "")
+                            .replace("AU", "")
                         );
                     } else {
                         a["price"] = null;
