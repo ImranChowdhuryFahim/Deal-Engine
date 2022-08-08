@@ -14,7 +14,7 @@ module.exports = {
     });
 
     if (alreadyExist) {
-      return res.status(500).json({ message: "already exit" });
+      return res.status(500).json({ message: "already exist" });
     }
     TrackedProducts.create(product)
       .then(() => {})
